@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
     case delete = "DELETE"
     case put = "PUT"
 }
 
-class RequestSender {
+public class RequestSender {
     static func sendRequest<T: Decodable>(request: URLRequest) async throws -> T {
         do {
             let (data, _): (Data, URLResponse) = try await URLSession.shared.data(for: request)
@@ -32,7 +32,7 @@ class RequestSender {
     }
 }
 
-class RequestMaker {
+public class RequestMaker {
     static func makeRequest<T: Encodable>(
         url: String,
         method: HTTPMethod,

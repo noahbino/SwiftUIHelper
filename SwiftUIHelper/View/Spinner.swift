@@ -9,17 +9,22 @@ import Foundation
 import SwiftUI
 import UIKit
 
-class SpinnerConstants {
+public class SpinnerConstants {
     static var colors: [UIColor] = [.red, .green]
     static var lineLength: CGFloat = 2.0
 }
 
-struct Spinner: View {
+public struct Spinner: View {
     
     @Binding var isAnimating: Bool
     var label: String?
+    
+    public init(isAnimating: Binding<Bool>, label: String? = nil) {
+        _isAnimating = isAnimating
+        self.label = label
+    }
 
-    var body: some View {
+    public var body: some View {
         VStack {
             LoadingView(isAnimating: $isAnimating)
                 .frame(width: 40, height: 40, alignment: .center)

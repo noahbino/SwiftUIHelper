@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 /// Custom Button
-struct CustomButton: View {
+public struct CustomButton: View {
     
     private static let buttonHorizontalMargins: CGFloat = 0
     
@@ -32,7 +32,7 @@ struct CustomButton: View {
         return inverted ? foregroundColor : .clear
     }
     
-    init(
+    public init(
          title: String,
          disabled: Bool = false,
          inverted: Bool = false,
@@ -50,7 +50,7 @@ struct CustomButton: View {
         self.disabled = disabled
     }
     
-    var body: some View {
+    public var body: some View {
         HStack {
             Spacer(minLength: CustomButton.buttonHorizontalMargins)
             Button {

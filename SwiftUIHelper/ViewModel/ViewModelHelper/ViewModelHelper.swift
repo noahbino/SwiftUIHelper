@@ -7,11 +7,11 @@
 
 import Foundation
 
-class ViewModelConstants {
+public class ViewModelConstants {
     static var presentationLength: Double = 2.0
 }
 
-class ViewModel<T>: NSObject, ObservableObject {
+public class ViewModel<T>: NSObject, ObservableObject {
     
     // MARK: - Status
     enum Status {
@@ -43,7 +43,7 @@ class ViewModel<T>: NSObject, ObservableObject {
 }
 
 // MARK: - Build Bottom Alert
-extension ViewModel {
+public extension ViewModel {
     func buildBottomAlert(type: BottomAlertType) {
         DispatchQueue.main.async {
             

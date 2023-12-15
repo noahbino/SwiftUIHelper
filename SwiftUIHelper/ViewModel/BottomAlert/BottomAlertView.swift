@@ -7,8 +7,12 @@
 
 import SwiftUI
 
-struct BottomAlert: View {
+public struct BottomAlert: View {
     var type: BottomAlertType
+    
+    public init(type: BottomAlertType) {
+        self.type = type
+    }
     
     var message: String {
         type.info.0
@@ -18,7 +22,7 @@ struct BottomAlert: View {
         type.info.1
     }
     
-    var body: some View {
+    public var body: some View {
         HStack {
             Image(systemName: image)
                 .resizable()
@@ -49,7 +53,7 @@ struct BottomAlert: View {
     }
 }
 
-enum BottomAlertType {
+public enum BottomAlertType {
     case success
     case failure
     case failCustom(String)
@@ -69,7 +73,7 @@ enum BottomAlertType {
     }
 }
 
-class BottomAlertConstants {
+public class BottomAlertConstants {
     static var successMessage: String = "Success"
     static var failureMessage: String = "Failure"
     
