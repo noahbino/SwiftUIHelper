@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ColorView: View {
     
-    @State var color: Color
+    @State var color: Color = .randomColor()
     
     var body: some View {
         VStack {
             Text(color.description)
+                .maxWidth()
                 .padding(.vertical)
+                .border(color, width: 1, cornerRadius: 8)
             CustomButton(title: "Random Color Generator", backgroundColor: color) {
                 color = .randomColor()
             }

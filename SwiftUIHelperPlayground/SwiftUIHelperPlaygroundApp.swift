@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftUIHelperPlaygroundApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Playground()
         }
     }
 }
