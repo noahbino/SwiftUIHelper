@@ -42,18 +42,18 @@ struct LoadingView: UIViewRepresentable {
     
     @Binding var isAnimating: Bool
     
-    func makeUIView(context: Context) -> ProgressView {
+    internal func makeUIView(context: Context) -> ProgressView {
         return ProgressView(colors: SpinnerConstants.colors, lineWidth: SpinnerConstants.lineLength)
     }
     
-    func updateUIView(_ uiView: ProgressView, context: Context) {
+    internal func updateUIView(_ uiView: ProgressView, context: Context) {
         uiView.isAnimating = isAnimating
     }
 }
 
 
 
-class ProgressView: UIView {
+internal class ProgressView: UIView {
     
     init(frame: CGRect,
          colors: [UIColor],

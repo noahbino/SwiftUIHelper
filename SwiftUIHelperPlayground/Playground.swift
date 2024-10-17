@@ -12,6 +12,7 @@ enum Features: CaseIterable {
     case randomColor
     case buttonList
     case viewModel
+    case imageView
     
     var name: String {
         switch self {
@@ -21,6 +22,8 @@ enum Features: CaseIterable {
             return "Buttons"
         case .viewModel:
             return "View Model"
+        case .imageView:
+            return "Async Image View"
         }
     }
     
@@ -34,6 +37,8 @@ enum Features: CaseIterable {
             ButtonListView()
         case .viewModel:
             HelperView()
+        case .imageView:
+            AsyncImageViewExample()
         }
     }
 }
