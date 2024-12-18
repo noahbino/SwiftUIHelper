@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "SwiftUIHelper"
-  spec.version      = "0.0.5"
+  spec.version      = "0.0.7"
   spec.summary      = "A CocoaPods library written in Swift"
 
   spec.description  = <<-DESC
