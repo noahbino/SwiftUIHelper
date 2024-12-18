@@ -39,8 +39,8 @@ struct HelperView: View {
             switch viewModel.status {
             case .loading, .ready:
                 Spinner(isAnimating: .constant(true))
-            case .loaded(let users):
-                loadedView(users: users)
+            case .loaded:
+                loadedView(users: viewModel.users)
             case .error(let error):
                 Text("Error: \(error)")
                 Button("Try again") {
