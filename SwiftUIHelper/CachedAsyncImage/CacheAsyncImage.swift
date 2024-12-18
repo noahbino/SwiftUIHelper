@@ -27,10 +27,25 @@ public struct AsyncImageView: View {
     
     let url: URL
     let aspectRatio: ContentMode
+    let defaultImage: String?
     
-    public init(url: URL, aspectRatio: ContentMode) {
+    public init(
+        url: URL,
+        _ defaultImage: String? = nil
+    ) {
+        self.url = url
+        self.aspectRatio = .fill
+        self.defaultImage = defaultImage
+    }
+
+    public init(
+        url: URL,
+        aspectRatio: ContentMode,
+        _ defaultImage: String? = nil
+    ) {
         self.url = url
         self.aspectRatio = aspectRatio
+        self.defaultImage = defaultImage
     }
     
     public var body: some View {
@@ -39,6 +54,8 @@ public struct AsyncImageView: View {
                 imageView(image: image)
             } else if isLoading {
                 SwiftUI.ProgressView()
+            } else if let title: String = defaultImage {
+                Image(title)
             } else {
                 errorView
             }
@@ -68,6 +85,7 @@ public struct AsyncImageView: View {
     
     private func loadImage() {
         if let cachedImage: UIImage = ImageCache.shared.getImage(for: url) {
+            print("Fetched from cache")
             self.image = cachedImage
         } else {
             Task {
