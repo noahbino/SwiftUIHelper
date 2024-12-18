@@ -42,7 +42,7 @@ public class RequestMaker {
         var request: URLRequest = .init(url: url)
         request.httpMethod = method.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.timeoutInterval = 15.0
+        request.timeoutInterval = 10.0
                 
         if let body: T = body {
             request.httpBody = try? JSONEncoder().encode(body)

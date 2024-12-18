@@ -8,9 +8,10 @@
 import Foundation
 
 
-class HelperViewModel: ViewModel<[UserOBJ]> {
+class HelperViewModel: ViewModel {
     
     let urlString: String = "https://jsonplaceholder.typicode.com/posts"
+    @Published var users: [UserOBJ] = []
     
     @MainActor
     func loadData() async {
@@ -24,9 +25,9 @@ class HelperViewModel: ViewModel<[UserOBJ]> {
         
         do {
             let users: [UserOBJ] = try await RequestSender.sendRequest(request: request)
-            self.status = .loaded(users)
+            self.users = users
+            self.status = .loaded
         } catch {
-            print("ERROR: \(error)")
             self.status = .error(error.localizedDescription)
         }
     }
